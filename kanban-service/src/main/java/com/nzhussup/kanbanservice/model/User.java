@@ -9,6 +9,8 @@ import java.io.Serializable;
 
 @Entity
 @Data
+@Builder
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
