@@ -8,6 +8,14 @@ import java.time.LocalDateTime;
 
 public class TestDataSetup {
 
+    public User admin = User.builder().id(1L).username("admin")
+            .password("$2a$12$9pml//HbMdII7IHKA2xhyOeMnrYj7xgzIyrLEYLYFdFMXDubxgeMW")
+            .role("ROLE_ADMIN").build();
+    public User user = User.builder().id(2L).username("user")
+            .password("$2a$12$9pml//HbMdII7IHKA2xhyOeMnrYj7xgzIyrLEYLYFdFMXDubxgeMW")
+            .role("ROLE_USER").build();
+
+
     public User test1 = User.builder().id(1L).username("test1")
             .password("$2a$12$9pml//HbMdII7IHKA2xhyOeMnrYj7xgzIyrLEYLYFdFMXDubxgeMW")
             .role("ROLE_ADMIN").build();

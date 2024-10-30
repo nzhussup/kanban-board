@@ -5,6 +5,7 @@ import lombok.*;
 @Data
 @Setter
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class CardByTitleRequest {
