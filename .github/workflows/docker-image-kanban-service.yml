@@ -18,6 +18,11 @@ jobs:
           distribution: "temurin"
           java-version: "21"
 
+      - name: Build the application
+        working-directory: kanban-service
+        run: |
+          ./mvnw compile
+
       - name: Run tests
         working-directory: kanban-service
         run: |
