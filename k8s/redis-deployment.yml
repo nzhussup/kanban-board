@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kanban-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kanban-redis
+  template:
+    metadata:
+      labels:
+        app: kanban-redis
+    spec:
+      containers:
+        - name: redis
+          image: nzhussup/redis-db:latest
+          ports:
+            - containerPort: 6379
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+spec:
+  type: ClusterIP
+  ports:
+    - port: 6379
+      targetPort: 6379
+  selector:
+    app: kanban-redis

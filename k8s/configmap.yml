@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kanban-config
+data:
+  DB_NAME: kanban_db
+  DB_USERNAME: postgres
+  REDIS_HOST: redis
+  REDIS_PORT: "6379"
+
