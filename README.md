@@ -67,8 +67,6 @@ KanbanProject/
 
 - Docker
 - Kubernetes (Minikube)
-- Java 21
-- Maven
 
 ### Steps
 
