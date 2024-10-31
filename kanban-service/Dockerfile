@@ -1,3 +1,4 @@
+
 FROM eclipse-temurin:21-jdk AS build
 LABEL authors="nzhussup"
 
