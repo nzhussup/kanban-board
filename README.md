@@ -14,6 +14,19 @@ The **Kanban Board REST API** is a backend service for managing tasks using a Ka
 
 ---
 
+## AWS Deployment
+
+The application is deployed under this IP address:
+
+16.171.45.28:30001
+
+[Click here to visit the API documentation](http://16.171.45.28:30001)
+
+Use this credentials:
+- username: nurik
+- password: 1234
+
+
 ## Features
 
 - **User Authentication**: Secure login either with JWT-based or basic username/password authentication.
