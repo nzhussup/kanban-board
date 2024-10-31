@@ -111,27 +111,35 @@ The following are the main API endpoints:
 - **POST** `/auth/login`: User login, returns a JWT token.
 - **POST** `/auth/register`: New user registration.
 
+### `/api` Endpoint
+
+### Users
+
+- **GET** `/users/all`: Get all users.
+
 ### Board
 
-- **POST** `/boards`: Create a new board.
-- **GET** `/boards`: Get all boards.
-- **GET** `/boards/{id}`: Get a board by ID.
-- **PUT** `/boards/{id}`: Update a board.
-- **DELETE** `/boards/{id}`: Delete a board.
+- **POST** `/board/add`: Create a new board.
+- **GET** `/board/all`: Get all boards.
+- **GET** `/board/{id}`: Get a board by ID.
+- **PUT** `/board/update/{id}`: Update a board.
+- **DELETE** `/board/delete/{id}`: Delete a board.
 
 ### List
 
-- **POST** `/lists`: Create a new list within a board.
-- **GET** `/lists/{id}`: Get a list by ID.
-- **PUT** `/lists/{id}`: Update a list.
-- **DELETE** `/lists/{id}`: Delete a list.
+- **POST** `/list/add`: Create a new list within a board.
+- **GET** `/list/all`: Get all lists.
+- **GET** `/list/{id}`: Get a list by ID.
+- **PUT** `/list/update/{id}`: Update a list.
+- **DELETE** `/list/delete/{id}`: Delete a list.
 
 ### Card
 
-- **POST** `/cards`: Create a new card within a list.
-- **GET** `/cards/{id}`: Get a card by ID.
-- **PUT** `/cards/{id}`: Update a card.
-- **DELETE** `/cards/{id}`: Delete a card.
+- **POST** `/card/add`: Create a new card within a list.
+- **GET** `/card/all`: Get all cards
+- **GET** `/card/{id}`: Get a card by ID.
+- **PUT** `/card/update/{id}`: Update a card.
+- **DELETE** `/card/delete/{id}`: Delete a card.
 
 ---
 
