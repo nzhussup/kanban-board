@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Kanban Board REST API** is a backend service for managing tasks using a Kanban-style approach. It allows authenticated users to create, manage, and organize tasks within a board structure that includes boards, lists, and cards. The API is built with Java and Spring Boot, with secure authentication, caching, and containerization for deployment scalability and reliability.
+The **Kanban Board REST API** is a backend service for managing tasks using a Kanban-style approach. It allows authenticated users to create, manage, and organize tasks within a board structure that includes boards, lists, and cards. The API is built with Java and Spring Boot, with secure authentication, caching, and containerization for deployment scalability and reliability. Also this project automates testing, building and pushing workflows using GitHub Actions CI/CD.
 
 [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)](https://spring.io/projects/spring-boot)
