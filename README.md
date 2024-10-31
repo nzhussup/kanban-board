@@ -26,6 +26,8 @@ Use this credentials:
 - username: nurik
 - password: 1234
 
+For the deployment purposes k3s (lightweight kubernetes) was used.
+
 
 ## Features
 
