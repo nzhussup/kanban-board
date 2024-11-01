@@ -23,11 +23,13 @@ The application is deployed under this IP address:
 [Click here to visit the API documentation](http://16.171.45.28:30001)
 
 Use this credentials:
+
 - username: nurik
 - password: 1234
 
 For the deployment k3s (lightweight kubernetes) was used.
 
+---
 
 ## Features
 
@@ -189,6 +191,10 @@ All user sensetive data such as passwords are encoded using **BCrypt** with the 
 Redis caching is used to store frequently accessed data, improving response times and reducing database load.
 
 ---
+
+## Database Model
+
+![Database Model](db_model.svg)
 
 ## Technologies Used
 
