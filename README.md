@@ -194,7 +194,7 @@ Redis caching is used to store frequently accessed data, improving response time
 
 ## Database Model
 
-![Database Model](db_model.svg)
+[Database Model](db_model.drawio.png)
 
 ## Technologies Used
 
