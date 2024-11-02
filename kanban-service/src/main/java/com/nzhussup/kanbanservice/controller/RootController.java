@@ -4,6 +4,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class RootController {
 
     @GetMapping
+    @Cacheable("swagger")
     public ModelAndView redirectToSwaggerUI(Authentication authentication) {
 
         if (authentication != null && authentication.isAuthenticated()) {

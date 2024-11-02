@@ -13,7 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 public class AdminController {
 
     @PostMapping("/dropAllCache")
-    @CacheEvict(value = {"users", "boards", "lists", "cards"}, allEntries = true)
+    @CacheEvict(value = {"users", "boards", "lists", "cards", "swagger"}, allEntries = true)
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<String> dropAllCache() {
         return ResponseEntity.status(HttpStatus.OK).body("All caches have been cleared.");
