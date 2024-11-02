@@ -18,9 +18,9 @@ The **Kanban Board REST API** is a backend service for managing tasks using a Ka
 
 The application is deployed under this IP address:
 
-16.171.45.28:30001
+51.20.250.21:30001
 
-[Click here to visit the API documentation](http://16.171.45.28:30001)
+[Click here to visit the API documentation](http://51.20.250.21:30001)
 
 Use this credentials:
 
@@ -28,6 +28,8 @@ Use this credentials:
 - password: 1234
 
 For the deployment k3s (lightweight kubernetes) was used.
+
+The API is deployed on AWS t3.small machine with 2GB of memory.
 
 ---
 
@@ -195,6 +197,8 @@ Redis caching is used to store frequently accessed data, improving response time
 ## Database Model
 
 ![Database Model](db_model.drawio.png)
+
+---
 
 ## Technologies Used
 
