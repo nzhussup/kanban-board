@@ -43,7 +43,6 @@ public class ListServiceTest extends TestDataSetup {
     @Mock
     private Authentication authentication;
 
-    // Assuming you have test data objects: user, list1, board1, etc.
 
     @Test
     public void listService_getAllLists_AdminUser_returnsEmptyList() {
