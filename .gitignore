@@ -1,3 +1,4 @@
 .DS_Store
 .env
 .secrets
+application_properties_local.txt
