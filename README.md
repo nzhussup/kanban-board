@@ -11,6 +11,8 @@ The **Kanban Board REST API** is a backend service for managing tasks using a Ka
 [![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io)
 [![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)](https://jwt.io)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org)
+[![Prometheus](https://img.shields.io/badge/Prometheus-E65035?style=for-the-badge&logo=prometheus&logoColor=white)](https://prometheus.io)
+[![Grafana](https://img.shields.io/badge/Grafana-000000?style=for-the-badge&logo=grafana&logoColor=white)](https://grafana.com)
 
 ---
 
@@ -28,6 +30,24 @@ Use this credentials:
 - password: 1234
 
 For the deployment k3s (lightweight kubernetes) was used.
+
+---
+
+## Continuous Monitoring
+
+In this project, two Grafana dashboards have been set up:
+1. One for overall monitoring of JVM metrics.
+2. The other for monitoring the count of root endpoint calls.
+
+Prometheus is used for scraping the data, and Grafana is used for visualization.
+
+**URLs:**
+- **JVM Metrics Dashboard**: [JVM Metrics Dashboard](http://13.48.126.153:30002/d/vJAZ9jwWk/jvm-micrometer-kubernetes-prometheus-by-istio?from=now-5m&to=now&timezone=browser&var-application=&var-namespace=&var-jvm_memory_pool_heap=$__all&var-jvm_memory_pool_nonheap=$__all&var-version=&refresh=5s)
+- **Root Endpoint Calls Dashboard**: [Root Endpoint Calls Dashboard](http://13.48.126.153:30002/d/ae3uryimk3sowe/root-endpoint-calls?from=now-5m&to=now&timezone=browser&refresh=5s)
+
+**Credentials:**
+- Username: admin
+- Password: admin
 
 ---
 
