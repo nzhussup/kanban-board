@@ -20,9 +20,9 @@ The **Kanban Board REST API** is a backend service for managing tasks using a Ka
 
 The application is deployed under this IP address:
 
-13.48.126.153:30001
+13.48.126.153:30001/
 
-[Click here to visit the API documentation](http://13.48.126.153:30001)
+[Click here to visit the API documentation](http://13.48.126.153:30001/)
 
 Use this credentials:
 
