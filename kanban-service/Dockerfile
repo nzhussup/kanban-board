@@ -17,7 +17,6 @@ RUN curl -fsSL "https://downloads.apache.org/maven/maven-3/${MAVEN_VERSION}/bina
 WORKDIR /app
 
 COPY pom.xml .
-
 COPY src ./src
 COPY logs ./logs
 
@@ -27,8 +26,13 @@ FROM eclipse-temurin:21-jre AS runtime
 
 WORKDIR /app
 
+# Ensure the logs folder exists at runtime
 COPY --from=build /app/target/*.jar ./app.jar
+
+# Make logs folder a volume to persist logs
+VOLUME ["/app/logs"]
 
 EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
