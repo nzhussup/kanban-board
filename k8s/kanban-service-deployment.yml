@@ -51,6 +51,7 @@ metadata:
   name: kanban-service
 spec:
   type: LoadBalancer
+  externalTrafficPolicy: Local
   ports:
     - port: 30001
       targetPort: 8080
