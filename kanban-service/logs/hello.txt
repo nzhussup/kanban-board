@@ -1,0 +1,2 @@
+This file is needed to make the logs folder visible to git :)
+Couldn't find any other solution :((((
