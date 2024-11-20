@@ -2,3 +2,4 @@
 .env
 .secrets
 application_properties_local.txt
+kanban-service/logs/ip.log

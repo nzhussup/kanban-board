@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Console logging
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender> -->
+
+    <!-- File logging for ip.log -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/ip.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+    <!-- Logger for RequestLoggingFilter -->
+    <logger name="com.nzhussup.kanbanservice.security.RequestLoggingFilter" level="INFO">
+        <appender-ref ref="FILE"/>
+    </logger>
+
+</configuration>

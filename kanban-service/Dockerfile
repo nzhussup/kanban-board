@@ -19,6 +19,7 @@ WORKDIR /app
 COPY pom.xml .
 
 COPY src ./src
+COPY logs ./logs
 
 RUN mvn clean package -DskipTests
 
