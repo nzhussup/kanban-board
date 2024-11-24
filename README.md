@@ -41,8 +41,10 @@ Prometheus is used for scraping the data, and Grafana is used for visualization.
 
 **URLs:**
 
-- **JVM Metrics Dashboard**: [JVM Metrics Dashboard](http://13.48.126.153:30002/d/vJAZ9jwWk/jvm-micrometer-kubernetes-prometheus-by-istio?from=now-5m&to=now&timezone=browser&var-application=&var-namespace=&var-jvm_memory_pool_heap=$__all&var-jvm_memory_pool_nonheap=$__all&var-version=&refresh=5s)
-- **Root Endpoint Calls Dashboard**: [Root Endpoint Calls Dashboard](http://13.48.126.153:30002/d/ae3uryimk3sowe/root-endpoint-calls?from=now-5m&to=now&timezone=browser&refresh=5s)
+- **JVM Metrics Dashboard**: [JVM Metrics Dashboard](http://13.48.126.153:30002/d/ce4xhbuu4z85cd/jvm-micrometer?orgId=1&from=now-24h&to=now&timezone=browser&var-application=&var-instance=10.42.0.75&var-jvm_memory_pool_heap=$__all&var-jvm_memory_pool_nonheap=$__all&var-jvm_buffer_pool=$__all&refresh=30s)
+- **Root Endpoint Calls Dashboard**: [Root Endpoint Calls Dashboard](http://13.48.126.153:30002/d/de4xfunb24hkwf/root-endpoint-dashboard?orgId=1&from=now-6h&to=now&timezone=browser)
+
+[Access dashboards](http://13.48.126.153:30002/dashboards)
 
 **Credentials:**
 
