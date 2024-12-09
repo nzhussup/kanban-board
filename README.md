@@ -20,9 +20,9 @@ The **Kanban Board REST API** is a backend service for managing tasks using a Ka
 
 The application is deployed under this IP address:
 
-13.48.126.153:30001/
+161.97.132.39:30001/
 
-[Click here to visit the API documentation](http://13.48.126.153:30001/)
+[Click here to visit the API documentation](http://161.97.132.39:30001/)
 
 Visiting root endpoint, doesn't need any authentication.
 
@@ -41,10 +41,10 @@ Prometheus is used for scraping the data, and Grafana is used for visualization.
 
 **URLs:**
 
-- **JVM Metrics Dashboard**: [JVM Metrics Dashboard](http://13.48.126.153:30002/d/ce4xhbuu4z85cd/jvm-micrometer?orgId=1&from=now-24h&to=now&timezone=browser&var-application=&var-instance=10.42.0.75&var-jvm_memory_pool_heap=$__all&var-jvm_memory_pool_nonheap=$__all&var-jvm_buffer_pool=$__all&refresh=30s)
-- **Root Endpoint Calls Dashboard**: [Root Endpoint Calls Dashboard](http://13.48.126.153:30002/d/de4xfunb24hkwf/root-endpoint-dashboard?orgId=1&from=now-6h&to=now&timezone=browser)
+- **JVM Metrics Dashboard**: [JVM Metrics Dashboard](http://161.97.132.39:30002/d/ce4xhbuu4z85cd/jvm-micrometer?orgId=1&from=now-24h&to=now&timezone=browser&var-application=&var-instance=10.42.0.75&var-jvm_memory_pool_heap=$__all&var-jvm_memory_pool_nonheap=$__all&var-jvm_buffer_pool=$__all&refresh=30s)
+- **Root Endpoint Calls Dashboard**: [Root Endpoint Calls Dashboard](http://161.97.132.39:30002/d/de4xfunb24hkwf/root-endpoint-dashboard?orgId=1&from=now-6h&to=now&timezone=browser)
 
-[Access dashboards](http://13.48.126.153:30002/dashboards)
+[Access dashboards](http://161.97.132.39:30002/dashboards)
 
 **Credentials:**
 
