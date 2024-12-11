@@ -44,9 +44,9 @@ Prometheus is used for scraping the data, and Grafana is used for visualization.
 The monitoring is available under the subdomain monitoring (monitoring.nzhussup.com)
 
 - **JVM Metrics Dashboard**: [JVM Metrics Dashboard](https://monitoring.nzhussup.com/d/ce4xhbuu4z85cd/jvm-micrometer?orgId=1&from=now-24h&to=now&timezone=browser&var-application=&var-instance=10.42.0.75&var-jvm_memory_pool_heap=$__all&var-jvm_memory_pool_nonheap=$__all&var-jvm_buffer_pool=$__all&refresh=30s)
-- **Root Endpoint Calls Dashboard**: [Root Endpoint Calls Dashboard](https://kanban-api.nzhussup.com/d/de4xfunb24hkwf/root-endpoint-dashboard?orgId=1&from=now-6h&to=now&timezone=browser)
+- **Root Endpoint Calls Dashboard**: [Root Endpoint Calls Dashboard](https://monitoring.nzhussup.com/d/de4xfunb24hkwf/root-endpoint-dashboard?orgId=1&from=now-6h&to=now&timezone=browser)
 
-[Access dashboards](https://kanban-api.nzhussup.com/dashboards)
+[Access dashboards](https://monitoring.nzhussup.com/dashboards)
 
 **Credentials:**
 
