@@ -3,7 +3,6 @@ package com.nzhussup.kanbanservice.controller;
 import com.nzhussup.kanbanservice.exception.CardNotFoundException;
 import com.nzhussup.kanbanservice.exception.ListNotFoundException;
 import com.nzhussup.kanbanservice.model.Card;
-import com.nzhussup.kanbanservice.model.requestModels.card.CardByTitleRequest;
 import com.nzhussup.kanbanservice.model.requestModels.card.CardRequest;
 import com.nzhussup.kanbanservice.service.CardService;
 import lombok.RequiredArgsConstructor;
@@ -15,32 +14,29 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/card")
+@RequestMapping("/v1/card")
 public class CardController {
 
     private final CardService cardService;
 
-    @GetMapping("/all")
+    @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> getAllCards(Authentication authentication) {
+    public ResponseEntity<?> getAllCards(Authentication authentication, @RequestParam Optional<String> title) {
         List<Card> cards;
+        if (title.isPresent()) {
+            try {
+                cards = cardService.getCardsByTitle(title.get(), authentication);
+            } catch (Exception e) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+            }
+            return ResponseEntity.ok(cards);
+        }
         try {
             cards = cardService.getAllCards(authentication);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-        }
-        return ResponseEntity.ok(cards);
-    }
-
-    @GetMapping("/byTitle")
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> getCardsByTitle(@RequestBody CardByTitleRequest request, Authentication authentication) {
-        List<Card> cards;
-        try {
-            cards = cardService.getCardsByTitle(request.getTitle(), authentication);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
@@ -59,7 +55,7 @@ public class CardController {
         return ResponseEntity.ok(card);
     }
 
-    @PostMapping("/add")
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> addCard(@RequestBody CardRequest request, Authentication authentication) {
         Card card;
@@ -76,24 +72,7 @@ public class CardController {
     }
 
 
-    @PostMapping("/admin/add")
-    @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<?> addCardAdmin(@RequestBody CardRequest request, Authentication authentication) {
-        Card card;
-        try {
-            card = cardService.saveCard(request, authentication, "admin");
-        } catch (ListNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        } catch (AccessDeniedException e) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-        }
-        return ResponseEntity.status(HttpStatus.CREATED).body(card);
-    }
-
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> updateCard(@PathVariable Long id, @RequestBody CardRequest request, Authentication authentication) {
         Card card;
@@ -109,24 +88,7 @@ public class CardController {
         return ResponseEntity.status(HttpStatus.CREATED).body(card);
     }
 
-    @PutMapping("/admin/update/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasRole('admin')")
-    public ResponseEntity<?> updateCardAdmin(@PathVariable Long id, @RequestBody CardRequest request, Authentication authentication) {
-        Card card;
-        try {
-            card = cardService.updateCard(id, request, authentication, "admin");
-        } catch (CardNotFoundException | ListNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        } catch (AccessDeniedException e) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-        }
-        return ResponseEntity.status(HttpStatus.CREATED).body(card);
-    }
-
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<?> deleteCard(@PathVariable Long id, Authentication authentication) {
         try {
@@ -140,23 +102,5 @@ public class CardController {
         }
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Card successfully deleted");
     }
-
-    @DeleteMapping("/admin/delete/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<?> deleteCardAdmin(@PathVariable Long id, Authentication authentication) {
-        try {
-            cardService.deleteCard(id, authentication, "admin");
-        } catch (CardNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        } catch (AccessDeniedException e) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-        }
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Card successfully deleted");
-    }
-
-
 
 }

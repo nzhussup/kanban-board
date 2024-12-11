@@ -18,12 +18,12 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/board")
+@RequestMapping("/v1/board")
 public class BoardController {
 
     private final BoardService boardService;
 
-    @GetMapping("/all")
+    @GetMapping()
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
     public ResponseEntity<List<Board>> getAllBoards(Authentication authentication) {
         List<Board> boards = boardService.getAllBoards(authentication);
@@ -39,30 +39,15 @@ public class BoardController {
         return ResponseEntity.ok(board);
     }
 
-    @PostMapping("/add")
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Board> addBoard(@RequestBody BoardAddRequest board, Authentication authentication) {
         Board addedBoard = boardService.addBoard(board, authentication);
         return ResponseEntity.status(HttpStatus.CREATED).body(addedBoard);
     }
 
-    @PostMapping("/admin/add")
-    @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<?> addAdminBoard(@RequestBody BoardAddAdminRequest board, Authentication authentication) {
-        Board addedBoard;
-        try {
-            addedBoard = boardService.addBoardAdmin(board, authentication);
-        } catch (AccessDeniedException e) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
-        } catch (UserNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(addedBoard);
-    }
-
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> updateBoard(@PathVariable long id, @RequestBody BoardAddRequest board, Authentication authentication) {
         Board updatedBoard;
@@ -74,32 +59,10 @@ public class BoardController {
         return ResponseEntity.status(HttpStatus.OK).body(updatedBoard);
     }
 
-    @PutMapping("/admin/update/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<?> updateAdminBoard(@PathVariable long id, @RequestBody BoardAddAdminRequest board, Authentication authentication) {
-        Board updatedBoard;
-        try {
-            updatedBoard = boardService.updateBoardAdmin(id, board);
-        } catch (BoardNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(updatedBoard);
-    }
-
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> deleteBoard(@PathVariable long id, Authentication authentication) {
         return boardService.deleteBoard(id, authentication);
     }
-
-    @DeleteMapping("/admin/delete/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<?> deleteAdminBoard(@PathVariable long id, Authentication authentication) {
-        return boardService.deleteBoardAdmin(id, authentication);
-    }
-
-
 
 }
