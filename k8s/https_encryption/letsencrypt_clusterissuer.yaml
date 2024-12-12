@@ -4,12 +4,11 @@ metadata:
   name: letsencrypt-prod
 spec:
   acme:
-    server: https://acme-v02.api.letsencrypt.org/directory  # Production environment
-    email: nurzhanat2002@gmail.com  # Replace with your email
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: nurzhanat2002@gmail.com
     privateKeySecretRef:
-      name: letsencrypt-prod-key  # Secret to store the private key
+      name: letsencrypt-prod-key
     solvers:
-    - http01:
-        ingress:
-          class: nginx
-
+      - http01:
+          ingress:
+            class: nginx

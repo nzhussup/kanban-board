@@ -25,7 +25,7 @@ public class Card implements Serializable {
     @Column(nullable = false, length = 100)
     private String title;
 
-    @Column(columnDefinition = "TEXT") // To allow larger text
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @ManyToOne
@@ -46,4 +46,3 @@ public class Card implements Serializable {
         updatedAt = LocalDateTime.now();
     }
 }
-
