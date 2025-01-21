@@ -18,15 +18,21 @@ The **Kanban Board REST API** is a backend service for managing tasks using a Ka
 
 ## Server Deployment
 
-The application is deployed under:
+~~The application is deployed under:~~
 
-https://kanban-api.nzhussup.com
+~~https://kanban-api.nzhussup.com~~
 
-[Click here to visit the API documentation](https://kanban-api.nzhussup.com)
+~~[Click here to visit the API documentation](https://kanban-api.nzhussup.com)~~
 
-Visiting root endpoint, doesn't need any authentication.
+~~Visiting root endpoint, doesn't need any authentication.~~
 
-For the deployment k3s (lightweight kubernetes) was used.
+~~For the deployment k3s (lightweight kubernetes) was used.~~
+
+UPDATE!!!
+
+The application is no longer deployed on a server and therefore not accessible. This repository is archived and no longer active.
+
+This repository will from now on serve a purpose of a documentation.
 
 ---
 
